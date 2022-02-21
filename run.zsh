@@ -23,5 +23,7 @@ for a; do
 done
 
 # Fordítsuk le és futtassuk
-g++ ${1} -std=c++17 -lstdc++ -o ./bin/${outfile_dir}/${outfile_name}
+local_header_dir="/Users/klevcsoo/GitHub/deik-prog1/include"
+fltk_header_dir="/opt/homebrew/Cellar/fltk/1.3.8/include"
+g++ ${1} -std=c++17 -lstdc++ -I${local_header_dir} -I${fltk_header_dir} -I$(fltk-config --libs) -o ./bin/${outfile_dir}/${outfile_name}
 ./bin/${outfile_dir}/${outfile_name} $args
