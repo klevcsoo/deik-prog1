@@ -1,5 +1,8 @@
 # Lefordított fájlok
 bin
 
+# FLTK fájlok
+include/fltk_*
+
 # macOS cucc
 .DS_Store

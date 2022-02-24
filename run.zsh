@@ -16,14 +16,6 @@ fi
 # Hozzuk létre az output fájl bin mappáját, ha még nincs
 mkdir -p ./bin/${outfile_dir}
 
-# Gyűjtsük össze az argomentumokat
-args=""
-for a; do
-    args+="$a "
-done
-
 # Fordítsuk le és futtassuk
-local_header_dir="/Users/klevcsoo/GitHub/deik-prog1/include"
-fltk_header_dir="/opt/homebrew/Cellar/fltk/1.3.8/include"
-g++ ${1} -std=c++17 -lstdc++ -I${local_header_dir} -I${fltk_header_dir} -I$(fltk-config --libs) -o ./bin/${outfile_dir}/${outfile_name}
-./bin/${outfile_dir}/${outfile_name} $args
+g++ -std=c++17 -lstdc++ -I/Users/klevcsoo/GitHub/deik-prog1/include -L/opt/homebrew/Cellar/jpeg/9e/lib -L/opt/homebrew/Cellar/libpng/1.6.37/lib `fltk-config --use-forms --use-gl --use-images --ldstaticflags --cxxflags` ${1} -o ./bin/${outfile_dir}/${outfile_name}
+./bin/${outfile_dir}/${outfile_name}
