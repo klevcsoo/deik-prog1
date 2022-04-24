@@ -18,7 +18,7 @@ mkdir -p ./bin/${outfile_dir}
 
 # Fordítsuk le és futtassuk
 if [[ `uname` == 'Darwin' ]]; then # macOS-en vagyunk
-  g++ -std=c++17 -lstdc++ -I./include -L/opt/homebrew/Cellar/jpeg/9e/lib -L/opt/homebrew/Cellar/libpng/1.6.37/lib `fltk-config --use-forms --use-gl --use-images --ldstaticflags --cxxflags` ${1} -o ./bin/${outfile_dir}/${outfile_name}
+  g++ -std=c++17 -lstdc++ ${1} -o ./bin/${outfile_dir}/${outfile_name}
 elif [[ `uname` == 'Linux' ]]; then # Linux-on vagyunk
   g++ ${1} include/Graph.cpp include/Lines_window.cpp include/Window.cpp include/GUI.cpp include/Simple_window.cpp -o ./bin/${outfile_dir}/${outfile_name} -I./include `fltk-config --ldflags --use-images` -std=c++11
 else
